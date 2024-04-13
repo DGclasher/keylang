@@ -17,6 +17,7 @@ type Config struct {
     DBPort int    // Change DBPort type to int
     DBHost string
     Secret string
+    SSLMode string
 }
 
 var Envs = initConfig()
@@ -36,6 +37,7 @@ func initConfig() Config {
         DBName:     getEnv("DB_NAME", "keylangdb"),
         DBPort:     dbPort, 
         Secret:     getEnv("SECRET", "averylongsecretkey"),
+        SSLMode:    getEnv("SSL_MODE", "disable"),
     }
 }
 

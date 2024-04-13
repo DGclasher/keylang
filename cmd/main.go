@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", config.Envs.DBHost, strconv.Itoa(config.Envs.DBPort), config.Envs.DBUser, config.Envs.DBPass, config.Envs.DBName)
+	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", config.Envs.DBHost, strconv.Itoa(config.Envs.DBPort), config.Envs.DBUser, config.Envs.DBPass, config.Envs.DBName, config.Envs.SSLMode)
 
 	db, err := db.NewConnection(psqlInfo)
 	if err != nil {
