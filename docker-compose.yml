@@ -1,0 +1,23 @@
+services:
+  db:
+    container_name: keylangdb
+    image: postgres:alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    expose:
+      - '5432'
+    volumes:
+      - ./storage:/var/lib/postgresql/data
+
+  api:
+    container_name: keylang
+    image: dgclasher/keylang
+    pull_policy: always
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - '8080:8080'
