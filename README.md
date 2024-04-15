@@ -18,5 +18,9 @@ Start the API
 ```
 docker compose up -d
 ```
+Example usage
+```
+curl -X POST localhost:8080/api/license/create -d '{"user_email":"example@email.com","product_id":"12345ABC"}' -H 'content-type: application/json'
+```
 
 #### [API Docs](./docs/api.md)
